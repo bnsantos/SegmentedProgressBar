@@ -12,8 +12,8 @@ public class DrawingTimer {
     private final long tickTimeInMilliseconds = 30;
     private int totalTicks;
     private int currentTick = 0;
-    private Listener listener;
-    private TimerState timerState = TimerState.IDLE;
+        private Listener listener;
+        private TimerState timerState = TimerState.IDLE;
 
     public DrawingTimer() {
         handler = new Handler();
@@ -21,7 +21,7 @@ public class DrawingTimer {
 
     public void start(long timeInMilliseconds) {
         if (timerState == TimerState.IDLE) {
-            this.totalTicks = (int) (timeInMilliseconds / tickTimeInMilliseconds);
+            this.totalTicks = (int) Math.ceil(timeInMilliseconds / tickTimeInMilliseconds);
         }
         if (timerState != TimerState.RUNNING) {
             timerState = TimerState.RUNNING;
